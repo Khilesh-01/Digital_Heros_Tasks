@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import type { ApiError, AuditReport } from "../types/audit";
 
-const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8000";
+const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL ?? "https://kc-digital-heros-tasks.vercel.app/";
 const REQUEST_TIMEOUT_MS = 20_000;
 
 const apiClient = axios.create({
