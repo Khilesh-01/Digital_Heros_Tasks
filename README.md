@@ -13,6 +13,7 @@ Built for **Digital Heroes Training Task** ([Task A + Task B](https://digitalher
 
 ## Table of contents
 
+- [Deployment](#deployment)
 - [Project overview](#project-overview)
 - [Architecture](#architecture)
 - [Technology choices](#technology-choices)
@@ -21,13 +22,26 @@ Built for **Digital Heroes Training Task** ([Task A + Task B](https://digitalher
 - [Environment variables](#environment-variables)
 - [API documentation](#api-documentation)
 - [Testing](#testing)
-- [Deployment](#deployment)
 - [Design decisions & trade-offs](#design-decisions--trade-offs)
 - [Error handling matrix](#error-handling-matrix)
 - [Security](#security)
 - [Future improvements](#future-improvements)
 
 ---
+
+## Deployment
+
+**Vercel**:
+
+1. Push this repo to GitHub.
+2. Import the repo in Vercel, set the root directory to `frontend | backend`.
+3. Set `VITE_API_BASE_URL` to your deployed backend URL in case of deploying frontend.
+4. Deploy — Vercel auto-detects the Vite framework preset.
+
+**Live URLs:**
+- Frontend: `https://digital-heros-tasks.vercel.app/`
+- Backend: `https://kc-digital-heros-tasks.vercel.app/`
+- GitHub: `https://github.com/Khilesh-01/Digital_Heros_Tasks`
 
 ## Project overview
 
@@ -266,27 +280,6 @@ pytest -v
 
 The HTTP fetch layer is mocked in API tests (`monkeypatch`), so the suite
 runs offline and deterministically.
-
-## Deployment
-
-**Backend → Render** (`render.yaml` provided at the repo root):
-
-1. Push this repo to GitHub.
-2. In Render, "New +" → "Blueprint" → point at the repo. Render reads
-   `render.yaml` and provisions the service automatically (free plan,
-   `rootDir: backend`).
-3. Update the `CORS_ORIGINS` env var to your deployed frontend URL.
-
-**Frontend → Vercel** (`frontend/vercel.json` provided):
-
-1. Import the repo in Vercel, set the root directory to `frontend`.
-2. Set `VITE_API_BASE_URL` to your deployed Render URL.
-3. Deploy — Vercel auto-detects the Vite framework preset.
-
-**Live URLs:** _add your deployed links here before submission_
-- Frontend: `https://<your-app>.vercel.app`
-- Backend: `https://<your-app>.onrender.com`
-- GitHub: `https://github.com/<your-username>/page-pulse`
 
 ## Design decisions & trade-offs
 
