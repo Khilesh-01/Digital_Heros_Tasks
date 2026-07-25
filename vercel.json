@@ -1,22 +1,47 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+    "services": {
+        "frontend": {
+            "root": "frontend",
+            "framework": "vite"
+        },
+        "backend": {
+            "root": "backend"
+        }
     },
-    {
-      "src": "backend/app/main.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    { "src": "/audit", "dest": "backend/app/main.py" },
-    { "src": "/health", "dest": "backend/app/main.py" },
-    { "src": "/docs", "dest": "backend/app/main.py" },
-    { "src": "/redoc", "dest": "backend/app/main.py" },
-    { "src": "/openapi.json", "dest": "backend/app/main.py" },
-    { "src": "/(.*)", "dest": "frontend/dist/$1" }
-  ]
+    "rewrites": [
+        {
+            "source": "/audit",
+            "destination": "/backend/app/main.py"
+        },
+        {
+            "source": "/health",
+            "destination": "/backend/app/main.py"
+        },
+        {
+            "source": "/docs",
+            "destination": "/backend/app/main.py"
+        },
+        {
+            "source": "/redoc",
+            "destination": "/backend/app/main.py"
+        },
+        {
+            "source": "/openapi.json",
+            "destination": "/backend/app/main.py"
+        },
+        {
+            "source": "/api(/.*)?",
+            "destination": {
+                "type": "service",
+                "service": "backend"
+            }
+        },
+        {
+            "source": "/(.*)",
+            "destination": {
+                "type": "service",
+                "service": "frontend"
+            }
+        }
+    ]
 }
