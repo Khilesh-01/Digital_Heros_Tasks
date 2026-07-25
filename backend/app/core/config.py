@@ -23,7 +23,7 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
 
     # --- CORS ----------------------------------------------------------
-    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173,https://digital-heros-tasks.vercel.app/,digital-heros-tasks-git-main-kc24.vercel.app,digital-heros-tasks-d7nhgey34-kc24.vercel.app"
+    cors_origins: str = "http://localhost:5173,http://127.0.0.1:5173,https://digital-heros-tasks.vercel.app/"
 
     # --- HTTP client / fetcher ----------------------------------------
     request_timeout_seconds: float = 10.0
